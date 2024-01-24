@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irene Stock Management System</title>
+</head>
+<body>
+    <center>
+        <header>
+            <h1><marquee behavior="dynamic" direction="left">WELCOME TO IRENE'S STOCK MANAGEMENT SYSTEM</marquee></h1>
+            <form action="login.php" method="post">
+                <p>Login panel</p>
+                <label for="username">Username<em>*</em></label><br>
+                <input type="text" name="username" id="" placeholder="Enter username" required><br><br>
+                <label for="password">Password<em>*</em></label><br>
+                <input type="password" name="password" id="" placeholder="Enter password" required><br><br>
+                <button type="submit">Login</button><br><br>
+            </form>
+        </header>
+    </center>
+    <style>
+        header h1{
+            font-size: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+        }
+        header h1:hover{
+            color: blue;
+        }
+        body{
+            background-color: #ddd;
+        }
+        header p{
+            color: #FFFFFF;
+            padding: 10px;
+            background-color: blue;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header form{
+            cursor: pointer;
+            width: 40%;
+            background-color: #FFFFFF;
+        }
+        header label{
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header input{
+            padding: 20px;
+            width: 400px;
+        }
+        header form button{
+            padding: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 120px;
+            font-size: 20px;
+            color: #FFFFFF;
+            text-transform: lowercase;
+            border: none;
+            background-color: green;
+        }
+        header form em{
+            color: red;
+            font-size: 24px;
+        }
+    </style>
+</body>
+</html>

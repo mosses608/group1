@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome || User Dashboard</title>
+</head>
+<body>
+    <center>
+        <header>
+            <h1>WELCOME TO IRENE'S STOCK MANAGEMENT SYSTEM (ISMS)</h1>
+        </center>
+        </header>
+        <div class="navbar">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#" class="stock_management_button">Stock</a><br>
+            <div class="stock_mgt">
+                <a href="addStock.php">Add Stock</a>
+                <a href="viewStock.php">View Stock</a><br>
+            </div>
+            <a href="#" class="view_report">Report</a><br>
+            <div class="view_rpt">
+                <a href="#">View Report</a><br>
+            </div>
+            <a href="index.html">Sign out</a><br><br>
+        </div>
+        <style>
+            *{
+                box-sizing: border-box;
+                margin: 0%;
+                padding: 0%;
+            }
+            header h1{
+                padding: 10px;
+                position: fixed;
+                background-color: rgb(121, 178, 121);
+                font-size: 30px;
+                inline-size: 100%;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: 400;
+            }
+            .navbar a{
+                text-align: center;
+                display: block;
+                padding-block-start: 24px;
+                text-decoration: none;
+                font-size: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: 100;
+                color: yellow;
+            }
+            .navbar{
+                inline-size: 10%;
+                background-color: #222;
+            }
+            .stock_management_button{
+                text-decoration: none;
+            }
+            .stock_mgt{
+                display: none;
+                background-color: #ddd;
+            }
+            .stock_mgt a{
+                display: block;
+                color: #000000;
+                font-weight: 400;
+                font-size: 16px;
+            }
+            .view_rpt{
+                display: none;
+                background-color: #ddd;
+            }
+            .view_rpt a{
+                color: #000000;
+                font-weight: 400;
+                font-size: 16px;
+            }
+            .active{
+                display: block;
+            }
+        </style>
+        <script>
+            var drop_down_button=document.querySelector('.stock_management_button');
+            var dropdown_menu=document.querySelector('.stock_mgt');
+            var report_button=document.querySelector('.view_report');
+            var report=document.querySelector('.view_rpt');
+
+            //button listeners
+            drop_down_button.addEventListener('click', function(){
+            dropdown_menu.classList.toggle('active');
+            });
+
+            report_button.addEventListener('click', function(){
+                report.classList.toggle('active');
+            });
+
+        </script>
+        <center>
+            <div class="container">
+                <p>User Dashboard</p>
+                <div class="imageSlider">
+                    <!--<img src="images/all.jpg" alt="My Image">-->
+                    <img src="images/spices.jpg" alt="My Image">
+                    <img src="images/grain.jpg" alt="My Image">
+                    <img src="images/istock.jpg" alt="My Image">
+                    <img src="images/wheat.jpg" alt="My Image">
+                </div>
+                <div class="button_control">
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                </div>
+            </div><br><br>
+            <style>
+                footer{
+                    display: none;
+                }
+                .container{
+                    position: absolute;
+                    inset-block-start: 7%;
+                    inset-inline-start: 5%;
+                    inline-size: 75%;
+                    top: 10%;
+                }
+                .container p{
+                    margin-inline-start: 22%;
+                    inline-size: 110%;
+                    padding: 10px;
+                    font-size: 30px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-weight: 400;
+                    background-color: yellow;
+                }
+                .imageSlider{
+                    margin-inline-start: 20%;
+                    inline-size: 110%;
+                    overflow: hidden;
+                    block-size: 750px;
+                }
+                .imageSlider img{
+                    inline-size: 90%;
+                    block-size: 750px;
+                }
+                .button_control button{
+                    position: absolute;
+                    inset-block-start: 50%;
+                    cursor: pointer;
+                    font-size: 60px;
+                    font-weight: 100;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    border: none;
+                    background-color: inherit;
+                }
+                
+                .button_control .prev{
+                    inset-inline-start: 25%;
+                }
+                .button_control .next{
+                    inset-inline-end: 10%;
+                }
+            </style>
+        </center>
+        <script>
+            //Automatic image slide let image changes after 2s
+            const automatic_imageSlider=document.querySelectorAll('.imageSlider img');
+            const intervalTime=4000;
+            let initialImage=0;
+
+            function showImageSlides(){
+                automatic_imageSlider[initialImage].style.display='none';
+                initialImage++;
+
+                if(initialImage>=automatic_imageSlider.length){
+                    initialImage=0;
+                }
+                automatic_imageSlider[initialImage].style.display='block';
+            }
+            setInterval(showImageSlides,intervalTime);
+        </script>
+
+        <!--Button control image slide-->
+        <script>
+            var onclick_imageSlide=document.querySelectorAll('.imageSlider img');
+            let currentIndex=0;
+
+            function showNextImage(index){
+                onclick_imageSlide.forEach(function showNextImage(my_images){
+                    my_images.style.display='none';
+                });
+                onclick_imageSlide[index].style.display='block';
+            }
+
+            function changeSlide(offset){
+                newImageIndex=currentIndex + offset;
+                if(newImageIndex<0){
+                    newImageIndex=onclick_imageSlide.length-1;
+                }else if(newImageIndex>=onclick_imageSlide.length){
+                    newImageIndex=0;
+                }
+
+                showNextImage(newImageIndex);
+
+                currentIndex=newImageIndex;
+            }
+
+            showNextImage(currentIndex);
+        </script>
+        <center>
+            <footer>
+                <p>Developed by moe solutions, &copy; 2023</p>
+            </footer><br>
+            <style>
+                footer p{
+                    font-size: 20px;
+                    text-align: center;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                footer{
+                    padding: 14px;
+                    background-color: #ddd;
+                }
+            </style>
+        </center>
+</body>
+</html>
